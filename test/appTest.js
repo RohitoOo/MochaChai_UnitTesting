@@ -9,29 +9,44 @@ const assert = require('chai').assert;
 
 const app = require('../app');
 
+// Results 
+
+sayHelloResult = app.sayHello()
+addNumbersResult = app.addNumbers(5,5)
+
 // Create Tests 
 
 describe('App' , function(){
-    it('app should return Hello Tester!' , function(){
-        let result = app.sayHello()
-        // app() --> Parentheses added as app Returns a function 
-        assert.equal(result, 'Hello Tester!' );
-    })
 
-    it("SayHello Should return type String" , function(){
-        let result = app.sayHello()
-        assert.typeOf(result , 'string');
-    })
+        describe("SayHello" , function (){
 
-    it("AddNumbers should return value above 5" , function(){
-        let result = app.addNumbers(1,5)
-        assert.isAbove(result , 5 )
-    })
+            it('App should return Hello Tester!' , function(){
+        
+                // app() --> Parentheses added as app Returns a function 
+                assert.equal(sayHelloResult, 'Hello Tester!' );
+            })
+        
+            it("SayHello Should return type String" , function(){
+                
+                assert.typeOf(sayHelloResult , 'string');
+            })
 
-    it("AddNumbers Should return type Number" , function(){
-        let result = app.addNumbers()
-        assert.typeOf(result , 'number')
-    })
+        })
+    
+
+        describe("Add Numbers" , function(){
+
+            it("AddNumbers should return value above 5" , function(){
+                
+                assert.isAbove(addNumbersResult , 5 )
+            })
+
+            it("AddNumbers Should return type Number" , function(){
+            
+                assert.typeOf(addNumbersResult , 'number')
+            })
+        })
+
 })
 
 // npm run test -s OR Add " mocha || true " in package.json to Remove 
