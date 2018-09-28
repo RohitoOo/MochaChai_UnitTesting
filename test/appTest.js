@@ -15,6 +15,11 @@ describe('App' , function(){
         // app() --> Parentheses added as app Returns a function 
         assert.equal(result, 'Hello Tester!' );
     })
+
+    it("SayHello Should return type String" , function(){
+        let result = sayHello()
+        assert.typeOf(result , 'string');
+    })
 })
 
 // npm run test -s OR Add " mocha || true " in package.json to Remove 
